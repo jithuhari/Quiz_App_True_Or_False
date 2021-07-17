@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:math_practice_quiz_game/Screens/result.dart';
@@ -55,10 +54,18 @@ class _QuizPAgeState extends State<QuizPAge>
                   index++;
                   resetAnim();
                   startAnim();
+                  notAttempted++;
                 }else{
+                  notAttempted++;
                   Navigator.pushReplacement(
                     context, MaterialPageRoute(
-                      builder: (context)=>ResultPage()));
+                      builder: (context)=>Result(
+                        score: points,
+                        totalQuestion:questions.length ,
+                        correct: correct,
+                        incorrect: incorrect,
+                        notAttended: notAttempted,
+                      )));
                 }
               });
               
@@ -161,14 +168,16 @@ class _QuizPAgeState extends State<QuizPAge>
                     onTap: (){
                       if(questions[index].getAnswer() == "True"){
                         setState(() {
-                          points = points + 2;
+                          points = points + 1;
                           index++;
+                          correct++;
                           resetAnim();
                           startAnim();
                         });
                       }else{
-                        points = points - 1;
+                        //points = points - 1;
                         index++;
+                        incorrect++;
                         resetAnim();
                         startAnim();
                       }
@@ -189,14 +198,16 @@ class _QuizPAgeState extends State<QuizPAge>
                     onTap: (){
                       if(questions[index].getAnswer() == "False"){
                         setState(() {
-                          points = points + 2;
+                          points = points + 1;
                           index++;
+                          correct++;
                           resetAnim();
                           startAnim();
                         });
                       }else{
-                        points = points - 1;
+                        //points = points - 1;
                         index++;
+                        incorrect++;
                         resetAnim();
                         startAnim();
                       }
