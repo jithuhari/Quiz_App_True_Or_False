@@ -28,15 +28,15 @@ class _ResultState extends State<Result> {
    
     super.initState();
 
-    var percentage = (widget.score!/(widget.totalQuestion!*1))*100;
+    var percentage = (widget.correct!/(widget.totalQuestion!*1))*100;
 
     if(percentage >=90){
       greeting = "OutStanding";
-    }else if(percentage >80 && percentage<90){
+    }else if(percentage >=80 && percentage<90){
       greeting = "GoodWork";
-    }else if(percentage >70 && percentage<80){
+    }else if(percentage >=60 && percentage<80){
       greeting = "Good Effort"; 
-    }else if(percentage <70){
+    }else if(percentage <60){
       greeting = "Needs Improvement"; 
     }     
   }
@@ -68,7 +68,7 @@ class _ResultState extends State<Result> {
                 ),
                 ),
                 SizedBox( height: 8,),
-                Text('You Scored ${widget.score} Out of ${widget.totalQuestion!*1}',
+                Text('You Scored ${widget.correct} Out of ${widget.totalQuestion!*1}',
                 style: TextStyle(
                   fontSize: 20,
                   //fontWeight: FontWeight.bold

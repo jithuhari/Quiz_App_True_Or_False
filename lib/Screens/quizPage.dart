@@ -60,7 +60,7 @@ class _QuizPAgeState extends State<QuizPAge>
                   Navigator.pushReplacement( 
                     context, MaterialPageRoute(
                       builder: (context)=>Result(
-                        score: points,
+                        score: correct,
                         totalQuestion:questions.length ,
                         correct: correct,
                         incorrect: incorrect,
@@ -270,4 +270,12 @@ class _QuizPAgeState extends State<QuizPAge>
       ),
     );
   }
+
+   @override
+  void dispose() {
+    
+    animationController!.dispose();
+    super.dispose();
+  }
 }
+
