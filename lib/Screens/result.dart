@@ -44,12 +44,45 @@ class _ResultState extends State<Result> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          body: Column(
-            children: [
-              Text('$greeting'),
-              Text('You Scored ${widget.score} Out of ${widget.totalQuestion!*1}'),
-              Text('${widget.correct} correct , ${widget.incorrect} Incorrect , ${widget.notAttended} Not Attended out of ${widget.totalQuestion}' )
-            ],
+      backgroundColor: Colors.blueAccent.shade400,
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('MATH WIZ',
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold
+                ),
+                ),
+                Text('GAME OVER',
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold
+                ),
+                ),
+                Text('$greeting',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+                ),
+                ),
+                SizedBox( height: 8,),
+                Text('You Scored ${widget.score} Out of ${widget.totalQuestion!*1}',
+                style: TextStyle(
+                  fontSize: 20,
+                  //fontWeight: FontWeight.bold
+                ),
+                ),
+                SizedBox( height: 8,),
+                Text('${widget.correct} correct, ${widget.incorrect} Incorrect , ${widget.notAttended} Not Attended out of ${widget.totalQuestion}',
+                style: TextStyle(
+                  fontSize: 20,
+                  //fontWeight: FontWeight.bold
+                ),
+                 )
+              ],
+            ),
           ),      
     );
   }

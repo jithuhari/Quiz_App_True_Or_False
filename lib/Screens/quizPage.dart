@@ -57,7 +57,7 @@ class _QuizPAgeState extends State<QuizPAge>
                   notAttempted++;
                 }else{
                   notAttempted++;
-                  Navigator.pushReplacement(
+                  Navigator.pushReplacement( 
                     context, MaterialPageRoute(
                       builder: (context)=>Result(
                         score: points,
@@ -166,21 +166,40 @@ class _QuizPAgeState extends State<QuizPAge>
                   Spacer(),
                   GestureDetector(
                     onTap: (){
-                      if(questions[index].getAnswer() == "True"){
+                      if(index < questions.length-1){
+                          if(questions[index].getAnswer() == "True" ){
                         setState(() {
                           points = points + 1;
                           index++;
                           correct++;
                           resetAnim();
                           startAnim();
+                           
                         });
                       }else{
+                        
                         //points = points - 1;
                         index++;
                         incorrect++;
                         resetAnim();
                         startAnim();
+                        
+                        
                       }
+                      }else{
+                        incorrect++;
+                        //correct++;
+                         Navigator.pushReplacement( 
+                        context, MaterialPageRoute(
+                        builder: (context)=>Result(
+                        score: points,
+                        totalQuestion:questions.length ,
+                        correct: correct,
+                        incorrect: incorrect,
+                        notAttended: notAttempted,
+                      )));
+                      }
+                      
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -196,7 +215,9 @@ class _QuizPAgeState extends State<QuizPAge>
                   Spacer(),
                   GestureDetector(
                     onTap: (){
-                      if(questions[index].getAnswer() == "False"){
+                      if(index < questions.length-1){
+
+                        if(questions[index].getAnswer() == "False"){
                         setState(() {
                           points = points + 1;
                           index++;
@@ -211,6 +232,22 @@ class _QuizPAgeState extends State<QuizPAge>
                         resetAnim();
                         startAnim();
                       }
+
+                      }else{
+                        correct++;
+                        //incorrect++;
+                        Navigator.pushReplacement( 
+                        context, MaterialPageRoute(
+                        builder: (context)=>Result(
+                        score: points,
+                        totalQuestion:questions.length ,
+                        correct: correct,
+                        incorrect: incorrect,
+                        notAttended: notAttempted,
+                      )));
+                        
+                      }
+                      
                     },
                     child: Container(
                       decoration: BoxDecoration(
