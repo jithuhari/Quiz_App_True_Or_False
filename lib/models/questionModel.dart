@@ -1,28 +1,22 @@
-class QuestionModel{
-
+class QuestionModel {
   String? question;
   String? answer;
 
-  QuestionModel({this.question,this.answer});
+  QuestionModel({this.question, this.answer});
 
-  void setQuestion(String getQuestion){
-
+  void setQuestion(String getQuestion) {
     question = getQuestion;
-
   }
 
-  void setAnswer(String getAnswer){
-
+  void setAnswer(String getAnswer) {
     answer = getAnswer;
-
   }
 
-  String? getQuestion(){
+  String? getQuestion() {
     return question;
   }
 
-  String?getAnswer(){
+  String? getAnswer() {
     return answer;
   }
-
 }

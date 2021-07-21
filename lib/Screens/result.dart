@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_practice_quiz_game/Screens/quizPage.dart';
 
 class Result extends StatefulWidget {
 
@@ -80,7 +81,17 @@ class _ResultState extends State<Result> {
                   fontSize: 20,
                   //fontWeight: FontWeight.bold
                 ),
-                 )
+                 ),
+
+                 ElevatedButton(
+                   
+                   onPressed: (){
+                      Navigator.pushReplacement( 
+                    context, MaterialPageRoute(
+                      builder: (context)=>QuizPAge(
+                       
+                      )));
+                 }, child: Text('Play Again'))
               ],
             ),
           ),      
