@@ -152,7 +152,7 @@ List<QuestionModel> getQuestion() {
 
   //11-15
 
-  for (int i = 1; i <= 5; i++) {
+  for (int i = 1; i <= 15; i++) {
     int number = 1;
     final question = nextNumber(min: 1, max: 5);
     final answer = nextNumber(min: 2, max: 6);

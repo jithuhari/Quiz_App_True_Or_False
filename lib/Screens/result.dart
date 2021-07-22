@@ -83,6 +83,8 @@ class _ResultState extends State<Result> {
                 ),
                  ),
 
+                 SizedBox(height: 15,),
+
                  ElevatedButton(
                    
                    onPressed: (){

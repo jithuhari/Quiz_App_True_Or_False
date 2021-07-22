@@ -187,9 +187,11 @@ class _QuizPAgeState extends State<QuizPAge>
                         
                       }
                       }else{
-                        incorrect++;
-                        //correct++;
-                         Navigator.pushReplacement( 
+
+                        if(questions[index].getAnswer() == "True"){
+
+                        correct++;
+                        Navigator.pushReplacement( 
                         context, MaterialPageRoute(
                         builder: (context)=>Result(
                         score: points,
@@ -198,6 +200,22 @@ class _QuizPAgeState extends State<QuizPAge>
                         incorrect: incorrect,
                         notAttended: notAttempted,
                       )));
+
+                        }else{
+
+                          incorrect++;
+                        Navigator.pushReplacement( 
+                        context, MaterialPageRoute(
+                        builder: (context)=>Result(
+                        score: points,
+                        totalQuestion:questions.length ,
+                        correct: correct,
+                        incorrect: incorrect,
+                        notAttended: notAttempted,
+                        )));
+                        }
+                        //incorrect++;
+                        
                       }
                       
                     },
@@ -234,6 +252,8 @@ class _QuizPAgeState extends State<QuizPAge>
                       }
 
                       }else{
+                        if(questions[index].getAnswer() == "False"){
+
                         correct++;
                         //incorrect++;
                         Navigator.pushReplacement( 
@@ -245,6 +265,23 @@ class _QuizPAgeState extends State<QuizPAge>
                         incorrect: incorrect,
                         notAttended: notAttempted,
                       )));
+
+                        }else{
+
+                          //correct++;
+                        incorrect++;
+                        Navigator.pushReplacement( 
+                        context, MaterialPageRoute(
+                        builder: (context)=>Result(
+                        score: points,
+                        totalQuestion:questions.length ,
+                        correct: correct,
+                        incorrect: incorrect,
+                        notAttended: notAttempted,
+                      )));
+
+                        }
+                        
                         
                       }
                       
