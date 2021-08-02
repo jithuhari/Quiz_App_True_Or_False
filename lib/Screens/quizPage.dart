@@ -6,6 +6,9 @@ import 'package:math_practice_quiz_game/data/data.dart';
 import 'package:math_practice_quiz_game/models/questionModel.dart';
 
 class QuizPAge extends StatefulWidget {
+
+   static const routeName = '/MixedQuizPage';
+
   const QuizPAge({Key? key}) : super(key: key);
 
   @override

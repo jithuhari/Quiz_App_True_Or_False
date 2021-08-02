@@ -8,36 +8,38 @@ List<QuestionModel> getQuestion() {
   //1-15 Questions
 
   for (int i = 1; i <= 15; i++) {
+    
     final number = 1;
     final question = nextNumber(min: 1, max: 5);
-    dynamic sum;
-    String symbalswith;
+    dynamic operation;
+    dynamic symbolswitch;
     final counter = Random().nextInt(4);
+
+    //Set different operators randomly
     if (counter == 0) {
-      sum = question + number;
-      symbalswith = '+';
+      operation = question + number;
+      symbolswitch = '+';
     } else if (counter == 1) {
-      sum = question - number;
-      symbalswith = '-';
+      operation = question - number;
+      symbolswitch = '-';
     } else if (counter == 2) {
-      sum = question * number;
-      symbalswith = '*';
+      operation = question * number;
+      symbolswitch = '*';
     } else {
-      sum = question / number;
-      symbalswith = '/';
+      operation = question / number;
+      symbolswitch = '/';
     }
 
-    //Random Answer List With Correct Answer 
+    //Random Answer List With Correct Answer
     final answerList = [
-      sum,
+      operation,
       nextNumber(min: 1, max: 15),
     ];
 
-
     final answer = (answerList..shuffle()).first;
-    questionModel.setQuestion('$question $symbalswith $number = $answer');
+    questionModel.setQuestion('$question $symbolswitch $number = $answer');
     final finalAnswer = answer;
-    (sum == finalAnswer)
+    (operation == finalAnswer)
         ? questionModel.setAnswer('True')
         : questionModel.setAnswer('False');
     questions.add(questionModel);
@@ -47,6 +49,7 @@ List<QuestionModel> getQuestion() {
   return questions;
 }
 
+// create a method to show randow numbers between 2 numbers
 int nextNumber({required int min, required int max}) =>
 
     //max 50 , min 5

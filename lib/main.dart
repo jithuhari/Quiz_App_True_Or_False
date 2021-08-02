@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:math_practice_quiz_game/Screens/quizPage.dart';
+import 'package:math_practice_quiz_game/Screens/homeMain.dart';
+import 'package:math_practice_quiz_game/config/routes/on_generate_routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: QuizPAge(),
+      home: HomeMain(),
+      onGenerateRoute: OnGenerateRoutes.onGenerateRoute
     );
   }
 }
